@@ -117,7 +117,7 @@ export default function calculate(obj, buttonName) {
 
   if (buttonName === "ln") {
     if (obj.next) {
-      return { next: Math.log1p(obj.next).toString() };
+      return { next: Math.log(obj.next).toString() };
     }
     return {};
   }
