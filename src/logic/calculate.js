@@ -101,6 +101,34 @@ export default function calculate(obj, buttonName) {
     return {};
   }
 
+  if (buttonName === "sqrt") {
+    if (obj.next) {
+      return { next: Big(obj.next).sqrt().toString() };
+    }
+    return {};
+  }
+
+  if (buttonName === "log") {
+    if (obj.next) {
+      return { next: Math.log10(obj.next).toString() };
+    }
+    return {};
+  }
+
+  if (buttonName === "ln") {
+    if (obj.next) {
+      return { next: Math.log1p(obj.next).toString() };
+    }
+    return {};
+  }
+
+  if (buttonName === "!") {
+    if (obj.next) {
+      return { next: factorial(obj.next).toString() }
+    }
+    return {};
+  }
+
   // Button must be an operation
 
   // When the user presses an operation button without having entered
@@ -132,3 +160,27 @@ export default function calculate(obj, buttonName) {
     operation: buttonName,
   };
 }
+
+/**
+ * Performs the factorial function on a number.
+ * Example: 5! = 5*4*3*2*1
+ * This function is recursive and uses memoization to speed things up.
+ * This simple approach works on values up to 170 before the maximum integer value is reached.
+ * TODO: Refactor this using a big integer approach to allow for larger numbers.
+ * @param input
+ * @returns {number|*}
+ */
+function factorial (input) {
+  if (input <= 1) {
+    return 1;
+  }
+  if (input > 170) {
+    return 0;
+  }
+  if (cache[input]) {
+    return cache[input];
+  }
+  return cache[input] = factorial(input - 1) * input;
+}
+
+const cache = [];
