@@ -1,10 +1,20 @@
 .component-button {
   display: inline-flex;
+  width: 25%;
+  flex: 1 0 auto;
+}
+
+.component-button.expandedMode {
+  display: inline-flex;
   width: 20%;
   flex: 1 0 auto;
 }
 
 .component-button.wide {
+  width: 50%;
+}
+
+.component-button.wide.expandedMode {
   width: 40%;
 }
 
@@ -24,4 +34,8 @@
 .component-button.orange button {
   background-color: #f5923e;
   color: white;
+}
+
+.hidden {
+  display: none;
 }
