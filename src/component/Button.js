@@ -8,6 +8,7 @@ export default class Button extends React.Component {
     orange: PropTypes.bool,
     wide: PropTypes.bool,
     clickHandler: PropTypes.func,
+    expandedMode: PropTypes.bool,
   };
 
   handleClick = () => {
@@ -19,6 +20,8 @@ export default class Button extends React.Component {
       "component-button",
       this.props.orange ? "orange" : "",
       this.props.wide ? "wide" : "",
+      this.props.expandedMode ? "expandedMode" : "",
+      this.props.hidden ? "hidden" : "",
     ];
 
     return (

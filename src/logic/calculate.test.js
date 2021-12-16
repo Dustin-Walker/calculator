@@ -168,6 +168,50 @@ describe("calculate", function() {
 
   test(["2", "÷", "x", "+", "-", "x"], {
     total: "2",
-    operation: 'x'
+    operation: "x"
   });
+
+  test(["1", "sqrt"], {
+    next: "1"
+  })
+
+  test(["9", "sqrt"], {
+    next: "3"
+  })
+
+  test(["1", "log"], {
+    next: "0"
+  })
+
+  test(["100", "log"], {
+    next: "2"
+  })
+
+  test([Math.E.toString(), "ln"], {
+    next: "1"
+  })
+
+  test(["5", "!"], {
+    next: (5*4*3*2).toString()
+  })
+
+  test(["-5", "!"], {
+    next: "1"
+  })
+
+  test(["500", "!"], {
+    next: "0"
+  })
+
+  test(["0", "x^y", "5", "="], {
+    total: '0'
+  })
+
+  test(["1", "x^y", "5", "="], {
+    total: '1'
+  })
+
+  test(["3", "x^y", "3", "="], {
+    total: '27'
+  })
 });
